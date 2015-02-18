@@ -27,5 +27,4 @@ test('encodes a token', function(t) {
 
   t.equal(actualToken, expectedToken);
   t.end();
-
 });
