@@ -25,5 +25,10 @@
   "license": "MIT",
   "devDependencies": {
     "tap": "^0.6.0"
+  },
+  "dependencies": {
+    "lodash": "^3.2.0",
+    "nonce": "^1.0.3",
+    "unix-timestamp": "^0.1.2"
   }
 }

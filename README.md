@@ -20,7 +20,7 @@ SDK](https://github.com/opentok/opentok-node) for a more complete module.
 ### Generating a token
 
 ```javascript
-var tokenEncoder = require('opentok-token');
+var encodeToken = require('opentok-token');
 
 var tokenData = {
   session_id: 'SESSIONID',
@@ -33,6 +33,20 @@ var tokenData = {
 var apiKey = 'APIKEY';
 var apiSecret = 'APISECRET'
 
-var token = tokenEncoder(tokenData, apiKey, apiSecret);
+var token = encodeToken(tokenData, apiKey, apiSecret);
 ```
 **NOTE:** The API key, secret, and session ID above are not real.
+
+
+### Default values
+
+If you do not specify certain properties of the `tokenData` parameter, defaults will be applied for
+you.
+
+| Property      | Type                                | Default                     |
+|---------------|-------------------------------------|-----------------------------|
+| `create_time` | unix timestamp in seconds (integer) | now                         |
+| `expire_time` | unix timestamp in seconds (integer) | now + 1 day                 |
+| `role`        | string                              | 'publisher'                 |
+| `nonce`       | number                              | unique random number        |
+
