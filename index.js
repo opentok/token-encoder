@@ -3,12 +3,13 @@ var querystring = require('querystring');
 var timestamp = require('unix-timestamp');
 var nonce = require('nonce')();
 var _ = require('lodash');
+var URLSafeBase64 = require('urlsafe-base64');
 
 /**
  * @constant {string}
  * @private
  */
-var TOKEN_SENTINEL = 'T1==';
+var TOKEN_SENTINEL = 'WHITE';
 
 /**
  * @typedef {Object} TokenData
@@ -49,7 +50,7 @@ var encodeToken = function(tokenData, apiKey, apiSecret) {
   var dataString = querystring.stringify(tokenData),
       sig = signString(dataString, apiSecret),
       decoded = new Buffer("partner_id="+apiKey+"&sig="+sig+":"+dataString, 'utf8');
-  return TOKEN_SENTINEL + decoded.toString('base64');
+  return TOKEN_SENTINEL + URLSafeBase64.encode(decoded);
 };
 
 

@@ -12,7 +12,8 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "tap ./test"
+    "test": "tap ./test",
+    "debug": "node debug.js"
   },
   "keywords": [
     "opentok",
@@ -24,11 +25,13 @@
   "author": "Ankur Oberoi <aoberoi@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "tap": "^0.6.0"
+    "tap": "^0.6.0",
+    "urlencode": "^1.1.0"
   },
   "dependencies": {
     "lodash": "^3.2.0",
     "nonce": "^1.0.3",
-    "unix-timestamp": "^0.1.2"
+    "unix-timestamp": "^0.1.2",
+    "urlsafe-base64": "^1.0.0"
   }
 }
