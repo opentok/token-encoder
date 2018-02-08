@@ -103,6 +103,7 @@ test('url safe', function(t) {
   var url = urlencode(token);
   url = urlencode(url);
   url = urlencode(url);
+  url = urlencode.decode(url);
   t.type(token, 'string');
   t.ok(helpers.verifyTokenSignature(token, apiSecret));
   t.ok(url,token);
