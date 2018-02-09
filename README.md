@@ -1,4 +1,4 @@
-# A OpenTok Token Encoder Fork For White url token, Thank OpenTok Token.
+# A Url Safe Token Encoder Fork For White Url Token, Thank For OpenTok Token.
 
 ## What is different?
 
