@@ -1,13 +1,14 @@
-# OpenTok Token Encoder
+# A Url Safe Token Encoder Fork For White Url Token, Thank For OpenTok Token.
 
-[![Build Status](https://travis-ci.org/opentok/token-encoder.png)](https://travis-ci.org/opentok/token-encoder)
+## What is different?
 
-Generates tokens for `X-TB-TOKEN-AUTH` header when using [OpenTok REST API](https://tokbox.com/opentok/api/).
+- use url safe base64 encode for url query params
+- add url encode tester
 
 ## Installation
 
 ```
-npm install --save opentok-token
+npm install --save white-token-urlsafe
 ```
 
 ## Usage
@@ -20,7 +21,7 @@ SDK](https://github.com/opentok/opentok-node) for a more complete module.
 ### Generating a token
 
 ```javascript
-var encodeToken = require('opentok-token');
+var encodeToken = require('white-token-urlsafe');
 
 var tokenData = {
   session_id: 'SESSIONID',

@@ -1,6 +1,7 @@
 var test = require('tap').test;
 var encodeToken = require('..');
 var helpers = require('../helpers');
+const urlencode = require('urlencode');
 
 // fixtures
 // the API Key and Secret are fake
@@ -23,7 +24,7 @@ test('encodes a known token', function(t) {
     expire_time: 1424307413,
     connection_data: '{"name":"value"}'
   };
-  var expectedToken = 'T1==cGFydG5lcl9pZD0xMjM0NTYmc2lnPWRmOTRhNjQ1NTlhY2MwNjFkN2EzNzUyYTZmYzY5NDkzZTkzOGMxOTE6c2Vzc2lvbl9pZD0xX01YNHhNak0wTlRaLWZsTmhkQ0JOWVhJZ01UVWdNVFE2TkRJNk1qTWdVRVJVSURJd01UUi1NQzQwT1RBeE16QXlOWDQmY3JlYXRlX3RpbWU9MTQyNDIyMTAxMyZub25jZT0wLjM5NDI2MDk4ODEwNTA4ODUmcm9sZT1tb2RlcmF0b3ImZXhwaXJlX3RpbWU9MTQyNDMwNzQxMyZjb25uZWN0aW9uX2RhdGE9JTdCJTIybmFtZSUyMiUzQSUyMnZhbHVlJTIyJTdE';
+  var expectedToken = 'WHITEcGFydG5lcl9pZD0xMjM0NTYmc2lnPWRmOTRhNjQ1NTlhY2MwNjFkN2EzNzUyYTZmYzY5NDkzZTkzOGMxOTE6c2Vzc2lvbl9pZD0xX01YNHhNak0wTlRaLWZsTmhkQ0JOWVhJZ01UVWdNVFE2TkRJNk1qTWdVRVJVSURJd01UUi1NQzQwT1RBeE16QXlOWDQmY3JlYXRlX3RpbWU9MTQyNDIyMTAxMyZub25jZT0wLjM5NDI2MDk4ODEwNTA4ODUmcm9sZT1tb2RlcmF0b3ImZXhwaXJlX3RpbWU9MTQyNDMwNzQxMyZjb25uZWN0aW9uX2RhdGE9JTdCJTIybmFtZSUyMiUzQSUyMnZhbHVlJTIyJTdE';
 
   var actualToken = encodeToken(tokenData, apiKey, apiSecret);
 
@@ -93,5 +94,18 @@ test('does not verify bad values', function(t) {
   var token = encodeToken(noSessionTokenData, apiKey, apiSecret);
   t.type(token, 'string');
   t.ok(helpers.verifyTokenSignature(token, apiSecret));
+  t.end();
+});
+
+test('url safe', function(t) {
+  var noSessionTokenData = {};
+  var token = encodeToken(noSessionTokenData, apiKey, apiSecret);
+  var url = urlencode(token);
+  url = urlencode(url);
+  url = urlencode(url);
+  url = urlencode.decode(url);
+  t.type(token, 'string');
+  t.ok(helpers.verifyTokenSignature(token, apiSecret));
+  t.ok(url,token);
   t.end();
 });

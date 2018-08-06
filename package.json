@@ -1,34 +1,37 @@
 {
-  "name": "opentok-token",
+  "name": "white-token-urlsafe",
   "version": "1.1.0",
-  "description": "Generates tokens for `X-TB-TOKEN-AUTH` header when using OpenTok REST API.",
+  "description": "Generates tokens for `X-TB-TOKEN-AUTH` header when using White REST API.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/opentok/token-encoder.git"
+    "url": "https://github.com/buhe/token-encoder-urlsafe.git"
   },
   "bugs": {
-    "url": "https://github.com/opentok/token-encoder/issues",
-    "email": "support@tokbox.com"
+    "url": "https://github.com/buhe/token-encoder-urlsafe/issues",
+    "email": "support@herewhite.com"
   },
   "main": "index.js",
   "scripts": {
-    "test": "tap ./test"
+    "test": "tap ./test",
+    "debug": "node debug.js"
   },
   "keywords": [
-    "opentok",
+    "white",
     "testing",
     "tools",
     "sign",
     "hmac"
   ],
-  "author": "Ankur Oberoi <aoberoi@gmail.com>",
+  "author": "Hare Bu <hare.bu@herewhite.com>",
   "license": "MIT",
   "devDependencies": {
-    "tap": "^0.6.0"
+    "tap": "^0.6.0",
+    "urlencode": "^1.1.0"
   },
   "dependencies": {
     "lodash": "^3.2.0",
     "nonce": "^1.0.3",
-    "unix-timestamp": "^0.1.2"
+    "unix-timestamp": "^0.1.2",
+    "urlsafe-base64": "^1.0.0"
   }
 }
