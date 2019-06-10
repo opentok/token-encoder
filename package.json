@@ -1,6 +1,6 @@
 {
   "name": "opentok-token",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Generates tokens for `X-TB-TOKEN-AUTH` header when using OpenTok REST API.",
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
   "author": "Ankur Oberoi <aoberoi@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "tap": "^11.1.5"
+    "tap": "^14.2.2"
   },
   "dependencies": {
     "lodash": "^4.17.11",
