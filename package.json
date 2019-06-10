@@ -24,7 +24,7 @@
   "author": "Ankur Oberoi <aoberoi@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "tap": "^11.1.5"
+    "tap": "^10.7.3"
   },
   "dependencies": {
     "lodash": "^4.17.11",
